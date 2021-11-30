@@ -344,6 +344,7 @@ if __name__ == '__main__':
 
     problem = dynamics(locations, max_moving_cars_per_location, relocation_cost_per_car, gamma, theta)   
 
+    #policy iteration
     policy_stable = False
     policy_id = 0
     while policy_stable == False:
