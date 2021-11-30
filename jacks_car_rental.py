@@ -13,10 +13,12 @@ class location():
     renting_reward_per_car : float
         the reward per car rented from the location
     requests_dist : (lambda function) requests_dist: (number_of_requests) -> float
-        the distribution of the car requests of the location, returns the probability of the car requests to be number_of_requests
+        returns the probability of the car requests in a day to be number_of_requests 
+        (we assume that the distribution of the number of requests in a day at the location is the same for any day and indepented of any other variable, such as day of the week etc.)
     returns_dist : (lambda function) returnss_dist: (number_of_returns) -> float
-        the distribution of the car returns of the location, returns the probability of the car returns to be number_of_returns
-
+        returns the probability of the car returns in a day to be number_of_returns
+        (we assume that the distribution of the number of returnss in a day at the location is the same for any day and indepented of any other variable, such as day of the week etc.)
+        
     Attributes
     ----------
     max_cars : int
@@ -24,9 +26,11 @@ class location():
     renting_reward_per_car : float
         the reward per car rented from the location
     requests_dist : (lambda function) requests_dist: (number_of_requests) -> float
-        the distribution of the car requests of the location, returns the probability of the car requests to be number_of_requests
+        returns the probability of the car requests in a day to be number_of_requests
+        (we assume that the distribution of the number of requests in a day at the location is the same for any day and indepented of any other variable, such as day of the week etc.)
     returns_dist : (lambda function) returnss_dist: (number_of_returns) -> float
-        the distribution of the car returns of the location, returns the probability of the car returns to be number_of_returns
+        returns the probability of the car returns in a day to be number_of_returns
+        (we assume that the distribution of the number of returnss in a day at the location is the same for any day and indepented of any other variable, such as day of the week etc.)
     '''
     def __init__(self, max_cars, renting_reward_per_car, requests_dist, returns_dist):
         self.max_cars = max_cars
