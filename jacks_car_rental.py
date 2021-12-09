@@ -319,16 +319,16 @@ class dynamics():
                 print("state: " + str(self.states[i].cars) + ", action: " + str(self.states[i].actions[self.policy[i]]) + ", state value: " + str(self.states[i].value))
 
     def policy_iteration(self):
-    policy_stable = False
-    policy_id = 0
-    while policy_stable == False:
-        print("policy " + str(policy_id))
-        self.policy_evaluation() 
-        self.plot_policy(policy_id)  
-        policy_stable = self.policy_improvement() 
-        policy_id += 1     
+        policy_stable = False
+        policy_id = 0
+        while policy_stable == False:
+            print("policy " + str(policy_id))
+            self.policy_evaluation() 
+            self.plot_policy(policy_id)  
+            policy_stable = self.policy_improvement() 
+            policy_id += 1 
 
-        
+
 def poisson_distribution(lamda, n):
     '''
     Parameters
@@ -347,23 +347,14 @@ def poisson_distribution(lamda, n):
 
 
 if __name__ == '__main__':
-    locations = [location(3, 10, lambda n : poisson_distribution(1, n), lambda n :  poisson_distribution(1, n)), location(3, 10, lambda n :  poisson_distribution(1, n), lambda n :  poisson_distribution(1, n)), location(3, 10, lambda n : poisson_distribution(1, n), lambda n :  poisson_distribution(1, n))]
+    locations = [location(3, 10, lambda n : poisson_distribution(1, n), lambda n :  poisson_distribution(1, n)), location(3, 10, lambda n : poisson_distribution(1, n), lambda n :  poisson_distribution(1, n))]
     max_moving_cars_per_location = 1
-    relocation_cost_per_car = [[0, 0, 0], [2, 0, 0], [2, 2, 0]]
+    relocation_cost_per_car = [[2, 0], [0, 0]]
     gamma = 0.9
     theta = 0.001
-
     problem = dynamics(locations, max_moving_cars_per_location, relocation_cost_per_car, gamma, theta)   
-
-
+    problem.policy_iteration()
         
     print("finished")
             
-
-
-      
-                
-   
-
-
 
