@@ -318,7 +318,17 @@ class dynamics():
             for i in range(len(self.states)):
                 print("state: " + str(self.states[i].cars) + ", action: " + str(self.states[i].actions[self.policy[i]]) + ", state value: " + str(self.states[i].value))
 
+    def policy_iteration(self):
+    policy_stable = False
+    policy_id = 0
+    while policy_stable == False:
+        print("policy " + str(policy_id))
+        self.policy_evaluation() 
+        self.plot_policy(policy_id)  
+        policy_stable = self.policy_improvement() 
+        policy_id += 1     
 
+        
 def poisson_distribution(lamda, n):
     '''
     Parameters
@@ -335,6 +345,7 @@ def poisson_distribution(lamda, n):
     '''
     return (lamda ** n) * np.exp(-lamda) / np.math.factorial(n) if n >= 0 else 0         
 
+
 if __name__ == '__main__':
     locations = [location(3, 10, lambda n : poisson_distribution(1, n), lambda n :  poisson_distribution(1, n)), location(3, 10, lambda n :  poisson_distribution(1, n), lambda n :  poisson_distribution(1, n)), location(3, 10, lambda n : poisson_distribution(1, n), lambda n :  poisson_distribution(1, n))]
     max_moving_cars_per_location = 1
@@ -344,15 +355,7 @@ if __name__ == '__main__':
 
     problem = dynamics(locations, max_moving_cars_per_location, relocation_cost_per_car, gamma, theta)   
 
-    #policy iteration
-    policy_stable = False
-    policy_id = 0
-    while policy_stable == False:
-        print("policy " + str(policy_id))
-        problem.policy_evaluation() 
-        problem.plot_policy(policy_id)  
-        policy_stable = problem.policy_improvement() 
-        policy_id += 1 
+
         
     print("finished")
             
