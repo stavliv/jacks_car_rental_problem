@@ -1,4 +1,4 @@
-# jacks_car_rental_problmem
+# jacks_car_rental_problem
 
 This is a modified version of the Jack's car rental problem as stated in Reinforcement Learning An Introduction by Richard S. Sutton and Andrew G. Barto, so that it works with any number of locations, with costumized problem settings (rewards, costs, maximum number of cars, maximum number of cars moved, gamma and car requests and returns distributions), solved through policy iteration.
 
